@@ -6,6 +6,7 @@ import HeaderComponent from './components/HeaderComponent';
 import ListCandidatComponent from './components/ListCandidatComponent';
 import CreateCandidatComponent from './components/CreateCandidatComponent';
 
+
 import ViewCandidatComponent from './components/ViewCandidatComponent';
 
 
@@ -19,8 +20,9 @@ function App() {
         <HeaderComponent />
         <div className="container">
           <Switch>
+          
           <Route path="/" exact component={ListCandidatComponent}></Route>
-          <Route path="//add-candidates/_add" component={ListCandidatComponent}></Route>
+          <Route path="/add-candidates/_add" component={ListCandidatComponent}></Route>
           <Route path="/add-candidates/:id" component={CreateCandidatComponent}></Route>
           <Route path = "/view-candidates/:id" component ={ViewCandidatComponent}></Route>
             {/*  <Route path = "/update-employee/:id" component = {UpdateEmployeeComponent}></Route> */}
