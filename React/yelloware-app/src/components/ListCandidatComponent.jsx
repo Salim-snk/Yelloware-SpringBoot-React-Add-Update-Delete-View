@@ -44,10 +44,12 @@ class ListCandidatComponent extends Component {
             <div>
                 <h2 className="text-center">Candidats List</h2>
                 <div className="row">
-                    <button className="btn btn-primary" onClick={this.addCandidats}>Add Candidat</button>
+                <a href="/add-candidates/_add" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true"onClick={this.addCandidats}>Add Candidat</a>
+                
+                    
 
                 </div>
-                <br></br>
+                <ul />
                 <div className='row'>
 
                     <table className='table table-striped table-bordered'>
@@ -85,8 +87,8 @@ class ListCandidatComponent extends Component {
 
                                             <td>
                                                 <button onClick={() => this.editCandidat(candidat.id)} className="btn btn-info">Update </button>
-                                                <button style={{ marginLeft: "10px" }} onClick={() => this.deleteCandidat(candidat.id)} className="btn btn-danger">Delete </button>
-                                                <button style={{ marginLeft: "10px" }} onClick={() => this.viewCandidat(candidat.id)} className="btn btn-info">View </button>
+                                                <button style={{ marginLeft: "5px" }} onClick={() => this.deleteCandidat(candidat.id)} className="btn btn-danger">Delete </button>
+                                                <button style={{ marginLeft: "5px" }} onClick={() => this.viewCandidat(candidat.id)} className="btn btn-info">View </button>
 
                                             </td>
 

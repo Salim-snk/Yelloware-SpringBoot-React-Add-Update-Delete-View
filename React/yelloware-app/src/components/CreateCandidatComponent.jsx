@@ -42,7 +42,7 @@ class CreateCandidatComponent extends Component {
         };
         console.log('candidat =>' + JSON.stringify(candidat));
 
-        CandidatService.createCandidat(candidat).then(res =>{
+        CandidatService.createCandidat(candidat).then(res => {
             this.props.history.push('/candidates');
 
         });
@@ -83,83 +83,88 @@ class CreateCandidatComponent extends Component {
 
         this.setState({ dateOfBirth: event.target.value });
     }
-    
+
 
     cancel() {
         this.props.history.push('/add-candidates');
     }
-
+    getTitle() {
+        if (this.state.id === '_add') {
+            return <h3 className="text-center">Add Candidat</h3>
+        } else {
+            return <h3 className="text-center">Update Candidat</h3>
+        }
+    }
 
 
     render() {
         return (
             <div>
+                <br></br>
                 <div className="container">
                     <div className="row">
-                        <div className="card col-md-6 offset-md-3 offset-md-3"></div>
-                        <h3 className="text-center"> Add Candidat </h3>
-                        <div className="card-body"></div>
-                        <form>
-                            <div className="form-group">
-                                <label>Firts Name</label>
-                                <input placeholder="First Name" type="text" name="firtsName" className="form-control"
-                                    value={this.state.firstName} onChange={this.changeFirtsNameHandler}></input>
+                        <div className="card col-md-6 offset-md-3 offset-md-3">
+                            {
+                                this.getTitle()
+                            }
+                            <div className="card-body">
+                                <form>
+                                    <div className="form-group">
+                                        <label> First Name: </label>
+                                        <input placeholder="First Name" name="firstName" className="form-control"
+                                            value={this.state.firstName} onChange={this.changeFirstNameHandler} />
+                                    </div>
+                                    <div className="form-group">
+                                        <label> Last Name: </label>
+                                        <input placeholder="Last Name" name="lastName" className="form-control"
+                                            value={this.state.lastName} onChange={this.changeLastNameHandler} />
+                                    </div>
+                                    <div className="form-group">
+                                        <label> Email Id: </label>
+                                        <input placeholder="Email Address" name="emailId" className="form-control"
+                                            value={this.state.emailId} onChange={this.changeEmailHandler} />
+                                    </div>
+                                    <div className="form-group">
+                                        <label> Candidate Role  </label>
+                                        <input placeholder="Candidate Role" name="candidate_role" className="form-control"
+                                        value={this.state.candidate_role} onChange={this.changeCandidate_roleHandler} />
 
+                                    </div>
+                                    <div className="form-group">
+                                        <label> Active </label>
+                                        <input placeholder="Active me ? " name="active" className="form-control"
+                                        value={this.state.active} onChange={this.changeActiveHandler} />
+
+                                    </div>
+                                    <div className="form-group">
+                                        <label> firstStartDate  </label>
+                                        <input placeholder="Email Address" name="firstStartDate" className="form-control"
+                                        value={this.state.firstStartDate} onChange={this.changefirstStartDateHandler} />
+
+                                    </div>
+                                    <div className="form-group">
+                                        <label> secondLanguageLevel </label>
+                                        <input placeholder="secondLanguageLevel " name="secondLanguageLevel" className="form-control"
+                                        value={this.state.secondLanguageLevel} onChange={this.changesecondLanguageLevelHandler} />
+
+                                    </div>
+                                    <div className="form-group">
+                                        <label>dateOfBirth </label>
+                                        <input placeholder=" DateOfBirth" name="dateOfBirth" className="form-control"
+                                        value={this.state.dateOfBirth} onChange={this.changedateOfBirthHandler} />
+
+                                    </div>
+                                    <button className="btn btn-success" onClick={this.saveOrCandidat}>Save</button>
+                                    <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft: "10px"}}>Cancel</button>
+
+                                </form>
                             </div>
-                            <div className="form-group">
-                                <label>Last Name</label>
-                                <input placeholder="Last Name"type="text" name="lastName" className="form-control"
-                                    value={this.state.lastName} onChange={this.changeLastNameHandler}></input>
-
-                            </div>
-                            <div className="form-group">
-                                <label> Email Id: </label>
-                                <input placeholder="Email Address" name="emailId" className="form-control"
-                                    value={this.state.emailId} onChange={this.changeEmailHandler}></input>
-
-                            </div>
-                            <div className="form-group">
-                                <label> Candidate Role  </label>
-                                <input placeholder="Candidate Role" name="candidate_role" className="form-control"
-                                    value={this.state.candidate_role} onChange={this.changeCandidate_roleHandler}></input>
-
-                            </div>
-                            <div className="form-group">
-                                <label> Active </label>
-                                <input placeholder="Active me ? " name="active" className="form-control"
-                                    value={this.state.active} onChange={this.changeActiveHandler}></input>
-
-                            </div>
-                            <div className="form-group">
-                                <label> firstStartDate  </label>
-                                <input placeholder="Email Address" name="firstStartDate" className="form-control"
-                                    value={this.state.firstStartDate} onChange={this.changefirstStartDateHandler}></input>
-
-                            </div>
-                            <div className="form-group">
-                                <label> secondLanguageLevel </label>
-                                <input placeholder="secondLanguageLevel " name="secondLanguageLevel" className="form-control"
-                                    value={this.state.secondLanguageLevel} onChange={this.changesecondLanguageLevelHandler}></input>
-
-                            </div>
-                            <div className="form-group">
-                                <label>dateOfBirth </label>
-                                <input placeholder=" DateOfBirth" name="dateOfBirth" className="form-control"
-                                    value={this.state.dateOfBirth} onChange={this.changedateOfBirthHandler}></input>
-
-                            </div>
-                            <button className="btn btn-success" onClick={this.saveCandidat}> Save</button>
-                            <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{ marginLeft: "10px" }}> Cancel</button>
-
-                        </form>
+                        </div>
                     </div>
-
-
 
                 </div>
             </div>
-        );
+        )
     }
 }
-
 export default CreateCandidatComponent;
